@@ -1,11 +1,8 @@
 
-function SearchResults({ playlistData }) {
+function Playlist({ playlistData }) {
 
-    const addToPlaylistHandler = ({ target }) => {
-        console.log(target.value)
-    }
 
-    const playlistElements = playlistData.map(item => {
+    const playlistElements = playlistData?.map(item => {
         const { track, artist, coverArt, ULI } = item
         return (
             <li key={ULI}>
@@ -19,8 +16,8 @@ function SearchResults({ playlistData }) {
     })
 
     return (
-        <div className="search-results-wrapper">
-            <h2>Search results: </h2>
+        <div className="playlist-wrapper">
+            <h2>Playlist: </h2>
             <ul>
                 {playlistElements}
             </ul>
@@ -28,4 +25,4 @@ function SearchResults({ playlistData }) {
     )
 }
 
-export default SearchResults
+export default Playlist

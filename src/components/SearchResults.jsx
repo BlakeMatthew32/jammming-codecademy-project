@@ -6,13 +6,14 @@ function SearchResults({ searchData }) {
     }
 
     const searchDataElements = searchData.map(item => {
-        const { track, artist, coverArt, ULI } = item
+        const { track, artist, album, coverArt, ULI } = item
         return (
             <li key={ULI}>
                 <img src={coverArt} alt={`cover art for the song ${track} By ${artist}`} />
                 <div>
                     <h3>{track}</h3>
                     <h4>{artist}</h4>
+                    <h4>{album}</h4>
                 </div>
                 <button onClick={addToPlaylistHandler} value={ULI}>+</button>
             </li>
