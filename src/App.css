@@ -67,8 +67,7 @@ ul {
 
 ul li {
   padding: 1rem;
-  background-color: black;
-  border-radius: 15px;
+  border-bottom: 2px solid #ffffff;
   margin-inline: auto;
   margin-block-end: 2rem;
   display: grid;
