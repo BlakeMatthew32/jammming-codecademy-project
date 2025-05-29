@@ -1,15 +1,15 @@
 
-function Playlist({ playlistData }) {
+function Playlist({ playlistTracks }) {
 
-
-    const playlistElements = playlistData?.map(item => {
-        const { track, artist, coverArt, ULI } = item
+    const playlistElements = playlistTracks?.map(item => {
+        const { track, artist, album, coverArt, ULI } = item
         return (
             <li key={ULI}>
                 <img src={coverArt} alt={`cover art for the song ${track} By ${artist}`} />
                 <div>
                     <h3>{track}</h3>
                     <h4>{artist}</h4>
+                    <h4>{album}</h4>
                 </div>
             </li>
         )

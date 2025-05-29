@@ -1,11 +1,11 @@
 
-function SearchResults({ searchData }) {
+function SearchResults({ searchData, onAddToPlaylist }) {
 
     const addToPlaylistHandler = ({ target }) => {
-        console.log(target.value)
+        onAddToPlaylist(target.value)
     }
 
-    const searchDataElements = searchData.map(item => {
+    const searchDataElements = searchData?.map(item => {
         const { track, artist, album, coverArt, ULI } = item
         return (
             <li key={ULI}>
