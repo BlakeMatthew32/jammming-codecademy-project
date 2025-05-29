@@ -17,11 +17,39 @@ main section {
   justify-content: space-between;
 }
 
+main form.search{
+  margin-block-end: 2rem;
+  font-size: 1.75rem;
+  
+}
+
+main form.search > * {
+  padding: .25em 1em;
+  box-shadow: 2px 2px 10px black;
+}
+
+main form.search input {
+  font-size: inherit;
+  width: 70%;
+  margin-inline: auto;
+  border: none;
+  border-radius: 999px 0 0 999px;
+}
+
+main form.search button {
+  font-size: inherit;
+  border-radius: 0 999px 999px 0;
+  height: 100%;
+  border: none;
+}
+
+
 main section .search-results-wrapper,
 main section .playlist-wrapper {
   width: 48%;
   height: 700px;
   background-color: rgba(0, 0, 0, 0.8);
+  box-shadow: 2px 2px 10px black;
   border-radius: 15px;
   padding-inline: 2.5rem;
   padding-block-start: 1.5rem;

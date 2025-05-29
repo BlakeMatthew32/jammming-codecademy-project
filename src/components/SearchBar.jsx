@@ -4,9 +4,10 @@ function SearchBar() {
     const [searchInput, setSearchInput] = useState('')
 
     return (
-        <div>
+        <form className="search">
             <input name="search" onChange={({target}) => setSearchInput(target.value)} value={searchInput} />
-        </div>
+            <button type="submit">Search</button>
+        </form>
     )
 }
 
