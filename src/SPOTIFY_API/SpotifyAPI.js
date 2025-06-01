@@ -27,7 +27,15 @@ function base64encode(input) {
     .replace(/\//g, '_');
 }
 
-function requestAuth(codeChallenge) {
+function handleAuth() {
+
+    const codeVerifier = generateRandomString(codeVerifierLength)
+    const hashed = sha256(codeVerifier)
+    const codeChallenge = base64encode(hashed)
+
+    // generated in the previous step
+    window.localStorage.setItem('code_verifier', codeVerifier);
+
     const params =  {
     response_type: 'code',
     client_id: clientId,
@@ -72,17 +80,26 @@ async function getToken(code){
 
 
 const useSpotifyAPI = () => {
-    const [codeVerifier, setCodeVerifier] = useState(generateRandomString(codeVerifierLength))
-    const [hashed, setHashed] = useState(sha256(codeVerifier))
-    const [codeChallenge, setCodeChallenge] = useState(base64encode(hashed))
+    // const [codeVerifier, setCodeVerifier] = useState(generateRandomString(codeVerifierLength))
+    // const [hashed, setHashed] = useState(sha256(codeVerifier))
+    // const [codeChallenge, setCodeChallenge] = useState(base64encode(hashed))
 
-    // generated in the previous step
-    window.localStorage.setItem('code_verifier', codeVerifier);
+    const [login, setLogin] = useState(false)
+    const [authCode, setAuthCode] = useState("")
 
-    
+    const requestAuth = () => {
+        setAuthCode(handleAuth())
+        setLogin(true)
+    }
 
+    return {
+        requestAuth,
+        login
+    }
 
 }
+
+export default useSpotifyAPI
 
 
 // Return some functions maybe as an object
